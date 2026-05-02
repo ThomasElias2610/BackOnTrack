@@ -1,36 +1,82 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BackOnTrack 🌱
 
-## Getting Started
+**Your companion for life after treatment**
 
-First, run the development server:
+---
+
+## The Problem
+
+Young cancer survivors often find that the hardest part isn't treatment — it's what comes after. Brain fog, chronic fatigue, and the emotional weight of re-entering normal life can be overwhelming, yet there are almost no dedicated digital tools designed specifically for this recovery phase. Survivors are left to navigate cognitive challenges, energy crashes, and emotional setbacks with generic wellness apps that weren't built with their needs in mind.
+
+---
+
+## My Story
+
+In my final year at the University of Haifa, I was diagnosed with Hodgkin's lymphoma. I went through months of chemotherapy, watching my peers finish their degrees while I was focused on getting well. I reached remission, and I'm incredibly grateful — but returning to "normal life" came with its own set of challenges that nobody really prepares you for. I built BackOnTrack as both a portfolio project and something I genuinely wish had existed during my own recovery: a calm, thoughtful tool that helps survivors track their days, exercise their minds, and see their progress over time.
+
+---
+
+## Features
+
+### Daily Check-in
+Every day, BackOnTrack invites you to log how you're feeling — your energy level, mood, any symptoms, and a note about what's on your mind. The check-in is intentionally simple and quick so it doesn't feel like a chore. Over time, these daily snapshots become a rich dataset you can look back on to understand your own patterns and share with your care team.
+
+### Brain Exercises
+Chemotherapy-related cognitive impairment — often called "chemo brain" — is one of the most common and least-discussed side effects of cancer treatment. The cognitive exercises section includes memory card games and word recall challenges designed to gently stimulate the brain each day. Sessions are short by design, tuned for days when energy and concentration are limited.
+
+### Life Milestones
+Recovery isn't linear, and progress can be hard to see when you're in the middle of it. The milestone tracker lets you record and celebrate meaningful moments — returning to work, finishing a book, going for a walk — and visualizes them on a personal timeline. These markers serve as a reminder of how far you've come.
+
+### Smart Insights
+The insights engine analyzes your check-in history to surface patterns you might not notice on your own: energy trends over rolling windows, mood-energy correlations, and week-over-week changes. Instead of raw numbers, it translates your data into plain-language observations so you can make sense of how you're doing without needing to interpret charts.
+
+---
+
+## Technical Decisions
+
+**Why localStorage?** For this portfolio project, localStorage keeps the architecture simple and the app fully client-side — no backend required to demo the core experience. In a production version intended for real patients, I would replace localStorage with a Supabase backend using encrypted storage, row-level security, and full compliance with HIPAA (for US users) and Israeli privacy law (Protection of Privacy Law 5741-1981). Health data is sensitive and the storage layer would need to reflect that.
+
+**Why Next.js 14?** Next.js is the industry-standard framework for production React applications. Using App Router with server components gave me the SSR foundation a real version of this app would need — for fast initial loads, SEO on public-facing pages, and eventual server-side data fetching from a secure backend.
+
+**How the insights engine works:** The engine computes rolling 7-day averages for energy and mood, calculates percentage change between the current window and the previous one, and runs a simple Pearson-style correlation between daily energy and mood scores. The logic is intentionally isolated in its own module so it can be swapped out for a time-series ML model (e.g., Prophet or a lightweight LSTM) without touching the UI layer.
+
+---
+
+## Tech Stack
+
+- **Next.js 14** — App Router, server components
+- **TypeScript** — end-to-end type safety
+- **Tailwind CSS** — utility-first styling
+- **Framer Motion** — page transitions and micro-animations
+- **Recharts** — data visualization for check-in history and insights
+- **localStorage** — client-side persistence (demo only)
+- **html2canvas + jsPDF** — PDF export of dashboard data
+- **Vercel** — deployment and hosting
+- **Lucide React** — icon library
+
+---
+
+## Run Locally
 
 ```bash
+git clone https://github.com/ThomasElias2610/backontrack.git
+cd backontrack
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Live Demo
 
-## Learn More
+[Live on Vercel →](#)
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Future Improvements
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **ML-based pattern detection** — replace the rolling-average insights engine with a time-series model (e.g., Facebook Prophet or a lightweight LSTM) trained on anonymized survivor data to surface more meaningful and personalized patterns
+- **Backend with encrypted storage** — migrate from localStorage to a HIPAA/privacy-law-compliant backend (Supabase or a dedicated health data provider) so the app can safely store real patient data with proper access controls and audit logging
+- **Wearable device integration** — connect with Apple HealthKit and Fitbit's API to pull in resting heart rate, sleep data, and step counts automatically, eliminating the need for manual energy logging and making the insights engine significantly more accurate
