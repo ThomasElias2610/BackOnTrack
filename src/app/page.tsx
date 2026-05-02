@@ -118,7 +118,7 @@ export default function LandingPage() {
             background: "#fff",
             borderLeft: "5px solid var(--green-primary)",
             borderRadius: 12,
-            padding: "36px 40px",
+            padding: "28px 24px",
             boxShadow: "0 2px 20px rgba(0,0,0,0.06)",
           }}
         >

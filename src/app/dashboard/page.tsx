@@ -7,6 +7,7 @@ import type { CheckinEntry, ExerciseScore } from '@/lib/types';
 import MoodChart from '@/components/MoodChart';
 import WeeklyInsights from '@/components/WeeklyInsights';
 import ExportPDF from '@/components/ExportPDF';
+import Onboarding from '@/components/Onboarding';
 
 function StatCard({ label, value }: { label: string; value: string }) {
   return (
@@ -83,6 +84,8 @@ export default function DashboardPage() {
         gap: 16,
       }}
     >
+      <Onboarding />
+
       <h1
         style={{
           fontSize: 24,
@@ -237,22 +240,46 @@ export default function DashboardPage() {
           gap: 10,
         }}
       >
-        <StatCard label="Total Check-ins" value={String(checkins.length)} />
+        <StatCard label="Check-ins" value={String(checkins.length)} />
         <StatCard
-          label="Avg Energy This Week"
+          label="Avg Energy"
           value={avgEnergyThisWeek !== null ? avgEnergyThisWeek.toFixed(1) : '—'}
         />
         <StatCard
-          label="Exercise Sessions This Week"
+          label="Exercises This Week"
           value={String(exerciseSessions)}
         />
       </div>
 
-      {/* Chart */}
-      <MoodChart checkins={checkins} />
-
-      {/* Insights */}
-      <WeeklyInsights checkins={checkins} scores={scores} />
+      {/* Chart + Insights — or empty state */}
+      {checkins.length === 0 ? (
+        <div
+          style={{
+            background: 'var(--green-subtle)',
+            border: '1px solid var(--green-muted)',
+            borderRadius: 16,
+            padding: '32px 20px',
+            textAlign: 'center',
+          }}
+        >
+          <div style={{ fontSize: 36, marginBottom: 12 }}>🌱</div>
+          <p
+            style={{
+              fontSize: 15,
+              color: 'var(--gray-dark)',
+              margin: 0,
+              lineHeight: 1.65,
+            }}
+          >
+            Welcome! Complete your first check-in to start seeing your trends here 🌱
+          </p>
+        </div>
+      ) : (
+        <>
+          <MoodChart checkins={checkins} />
+          <WeeklyInsights checkins={checkins} scores={scores} />
+        </>
+      )}
 
       {/* Export */}
       <ExportPDF checkins={checkins} />
