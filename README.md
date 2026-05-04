@@ -53,7 +53,7 @@ The insights engine analyzes your check-in history to surface patterns you might
 ## Run Locally
 
 ```bash
-git clone https://github.com/ThomasElias2610/backontrack.git
+git clone https://github.com/ThomasElias2610/BackOnTrack.git
 cd backontrack
 npm install
 npm run dev
@@ -65,7 +65,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Live Demo
 
-[Live on Vercel →](#)
+[Live on Vercel →](https://back-on-track-97emvdf0t-thomaselias2610s-projects.vercel.app/)
 
 ---
 
