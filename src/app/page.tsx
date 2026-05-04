@@ -139,8 +139,7 @@ export default function LandingPage() {
               lineHeight: 1.75,
             }}
           >
-            I was diagnosed with Hodgkin&rsquo;s lymphoma during my final year at the
-            University of Haifa. Treatment ended, but the journey didn&rsquo;t —
+            I was diagnosed with Hodgkin&rsquo;s lymphoma during my time at university. Treatment ended, but the journey didn&rsquo;t —
             brain fog, fatigue, and the challenge of returning to normal life
             were things no app seemed to address. BackOnTrack is what I wished
             I&rsquo;d had.
@@ -247,8 +246,7 @@ export default function LandingPage() {
           fontSize: "0.85rem",
         }}
       >
-        Built by a Hodgkin&rsquo;s lymphoma survivor and CS graduate from the
-        University of Haifa
+        Built by a Hodgkin&rsquo;s lymphoma survivor and CS graduate
       </footer>
     </div>
   );
