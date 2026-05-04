@@ -10,12 +10,6 @@ Young cancer survivors often find that the hardest part isn't treatment — it's
 
 ---
 
-## My Story
-
-In my final year at the University of Haifa, I was diagnosed with Hodgkin's lymphoma. I went through months of chemotherapy, watching my peers finish their degrees while I was focused on getting well. I reached remission, and I'm incredibly grateful — but returning to "normal life" came with its own set of challenges that nobody really prepares you for. I built BackOnTrack as both a portfolio project and something I genuinely wish had existed during my own recovery: a calm, thoughtful tool that helps survivors track their days, exercise their minds, and see their progress over time.
-
----
-
 ## Features
 
 ### Daily Check-in
