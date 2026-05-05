@@ -139,10 +139,7 @@ export default function LandingPage() {
               lineHeight: 1.75,
             }}
           >
-            I was diagnosed with Hodgkin&rsquo;s lymphoma during my time at university. Treatment ended, but the journey didn&rsquo;t —
-            brain fog, fatigue, and the challenge of returning to normal life
-            were things no app seemed to address. BackOnTrack is what I wished
-            I&rsquo;d had.
+            After treatment ends, the hardest part begins — brain fog, fatigue, and the challenge of returning to normal life. There are almost no apps built for this. BackOnTrack is what survivors wished they had.
           </p>
         </motion.div>
       </section>
@@ -246,7 +243,7 @@ export default function LandingPage() {
           fontSize: "0.85rem",
         }}
       >
-        Built by a Hodgkin&rsquo;s lymphoma survivor and CS graduate
+        Built by a cancer survivor and CS graduate
       </footer>
     </div>
   );
