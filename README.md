@@ -65,7 +65,7 @@ Open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Live Demo
 
-[Live on Vercel →](https://back-on-track-97emvdf0t-thomaselias2610s-projects.vercel.app/)
+[Live on Vercel →](https://back-on-track-two.vercel.app)
 
 ---
 
